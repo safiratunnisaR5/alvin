@@ -6,8 +6,8 @@
   <title>Happy Birthday Alvin!</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
       color: white;
       text-align: center;
       margin: 0;
@@ -20,6 +20,7 @@
 
     h1 {
       font-size: 3em;
+      margin-bottom: 10px;
     }
 
     .cake {
@@ -74,43 +75,27 @@
       border-radius: 30px;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
+      margin-top: 20px;
     }
 
     .button:hover {
       transform: scale(1.05);
     }
 
+    .doa {
+      margin-top: 50px;
+      font-size: 1.3em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
     .by {
-      margin-top: 60px;
-      font-size: 1.2em;
-      color: #eee;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="section">
-    <h1>🎉 Happy Birthday Alvin! 🎂</h1>
-    <p>Yuk tiup lilinnya dulu brooo 😎</p>
-
-    <div class="cake">
-      <div class="candle">
-        <div class="flame" id="flame"></div>
-      </div>
-    </div>
-
-    <button class="button" onclick="blowCandle()">Make a Wish & Tiup Lilin 🎂💨</button>
-
-    <div class="by">— By Safiratun Nisa 💌</div>
-  </div>
-
-  <script>
-    function blowCandle() {
-      const flame = document.getElementById("flame");
-      flame.classList.add("hidden");
-      alert("Wuuushh~ Lilin mati! Semoga keinginan lo terkabul yaa 🎉✨");
-    }
-  </script>
-
-</body>
-</html>
+      margin-top: 40px;
+      font-size: 1.1em;
+      color: #eee
