@@ -1,62 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Alvin!</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
-      color: white;
-      overflow: hidden;
-      position: relative;
+      padding: 50px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
-      font-size: 4em;
-      font-weight: bold;
-      animation: bounce 1s ease-in-out infinite alternate;
-      opacity: 0;
-      transform: scale(0);
+      font-size: 3em;
+      margin-bottom: 20px;
     }
 
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-20px);
-      }
-    }
-
-    .confetti {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/00/15/party-2691196_960_720.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      animation: confettiFall 5s infinite linear;
-    }
-
-    @keyframes confettiFall {
-      0% {
-        transform: translateY(-100%);
-      }
-      100% {
-        transform: translateY(100%);
-      }
+    .pre-message, .birthday-message, .by-safiratun {
+      max-width: 600px;
+      text-align: center;
+      font-size: 1.5em;
     }
 
     .button {
@@ -69,104 +57,55 @@
       border-radius: 30px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+      transition: transform 0.2s ease-in-out;
     }
 
     .button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       background-color: #ff5733;
-    }
-
-    .birthday-message {
-      font-size: 1.5em;
-      margin-top: 20px;
-      opacity: 0;
-      animation: showMessage 2s forwards;
-    }
-
-    @keyframes showMessage {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .pre-message {
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #ffffff;
-      opacity: 0;
-      animation: showPreMessage 2s forwards;
-    }
-
-    @keyframes showPreMessage {
-      0% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .by-safiratun {
-      font-size: 1.2em;
-      color: #ffffff;
-      opacity: 0;
-      margin-top: 20px;
-      animation: showBySafiratun 2s forwards;
-    }
-
-    @keyframes showBySafiratun {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
 <body>
-  <div class="confetti"></div>
-  <div class="pre-message">
-    🚀 Semoga tahun ini lo makin sukses, happy, dan penuh petualangan seru! 🌟
-  </div>
-  <h1>🎉</h1>
-  <div class="birthday-message">
-    🎂 Happy Birthday Alvin! 🎉<br><br>
-    Semoga tahun ini lebih banyak keberuntungan, terus semangat, jangan lupa senyum dan tetep jadi diri lo yang paling keren! 🤘
-  </div>
-  <button class="button" onclick="alert('Happy Birthday Alvin! 🚀 Semoga makin oke tahun ini! 👊')">Make a Wish!</button>
-  <div class="by-safiratun">
-    By Safiratun Nisa
-  </div>
+
+  <section class="section" id="intro">
+    <div class="pre-message">
+      🚀 Yo Alvin! Scroll terus ya, ada surprise kecil nih dari seseorang spesial 😏
+    </div>
+  </section>
+
+  <section class="section" id="main">
+    <h1>🎉 Happy Birthday Alvin! 🎂</h1>
+    <div class="birthday-message">
+      Brooo, semoga lo makin keren, makin bahagia, dan rezekinya makin deras kayak hujan di bulan Desember! 😎<br><br>
+      Jangan lupa tetep jadi cowok humble tapi lucu. Hidup lo harus kayak lagu favorit—selalu naik turun tapi tetep asik! 🎶
+    </div>
+    <button class="button" onclick="alert('Yuk make a wish dulu~ 🎂✨')">Make a Wish!</button>
+  </section>
+
+  <section class="section" id="outro">
+    <div class="by-safiratun">
+      — By Safiratun Nisa 💌
+    </div>
+  </section>
 
   <script>
-    setTimeout(function() {
-      document.querySelector('.pre-message').style.opacity = '1';
-    }, 1000);
+    const sections = document.querySelectorAll('.section');
 
-    setTimeout(function() {
-      document.querySelector('h1').innerText = "Happy Birthday Alvin! 🎂";
-      document.querySelector('h1').style.opacity = '1';
-      document.querySelector('h1').style.transform = 'scale(1)';
-    }, 2500);
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
 
-    setTimeout(function() {
-      document.querySelector('.birthday-message').style.opacity = '1';
-    }, 3500);
+      sections.forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
 
-    setTimeout(function() {
-      document.querySelector('.by-safiratun').style.opacity = '1';
-    }, 4500);
+        if (boxTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
