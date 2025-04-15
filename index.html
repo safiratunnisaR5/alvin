@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      background: linear-gradient(to bottom, #8B0000, #FFD700);
       color: white;
       text-align: center;
       margin: 0;
@@ -25,22 +25,47 @@
 
     .cake {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 160px;
       margin: 50px auto;
-      background: #ffb347;
-      border-radius: 20px 20px 10px 10px;
+    }
+
+    .tier {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff4d4d;
+      border: 5px solid gold;
+      border-radius: 10px;
+    }
+
+    .tier-bottom {
+      bottom: 0;
+      width: 180px;
+      height: 60px;
+    }
+
+    .tier-middle {
+      bottom: 60px;
+      width: 130px;
+      height: 50px;
+    }
+
+    .tier-top {
+      bottom: 110px;
+      width: 80px;
+      height: 40px;
     }
 
     .candle {
       width: 10px;
-      height: 40px;
-      background: #ffffff;
+      height: 35px;
+      background: white;
       margin: 0 auto;
       position: absolute;
-      top: -40px;
-      left: 0;
-      right: 0;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
       border-radius: 2px;
     }
 
@@ -68,8 +93,9 @@
 
     .button {
       padding: 15px 30px;
-      background-color: #ff7f50;
-      color: white;
+      background-color: gold;
+      color: maroon;
+      font-weight: bold;
       font-size: 1.2em;
       border: none;
       border-radius: 30px;
@@ -98,4 +124,43 @@
     .by {
       margin-top: 40px;
       font-size: 1.1em;
-      color: #eee
+      color: #ffe;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>🎊 Happy Birthday Alvin! 🎂</h1>
+    <p>Udah siap make a wish dan tiup lilinnya belom bro? 😏</p>
+
+    <div class="cake">
+      <div class="tier tier-bottom"></div>
+      <div class="tier tier-middle"></div>
+      <div class="tier tier-top">
+        <div class="candle">
+          <div class="flame" id="flame"></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="button" onclick="blowCandle()">Tiup Lilin & Liat Doa 💨</button>
+
+    <div class="doa" id="doa" style="display:none;">
+      Semoga makin ganteng luar dalem (walau udah susah lebih ganteng sih ya 😜), makin berkah, makin dewasa tapi tetep lucu, dan dilancarin semua urusan dan rezekinya!<br><br>
+      Jangan lupa jaga kesehatan & jaga hati — siapa tau tahun ini ketemu jodoh 😝<br><br>
+      Intinya, semangat terus yaa Alvin! Kamu keren dan layak buat semua hal baik di dunia ini 🎉🔥
+    </div>
+
+    <div class="by">— Dari Safiratun Nisa 💌</div>
+  </div>
+
+  <script>
+    function blowCandle() {
+      document.getElementById("flame").classList.add("hidden");
+      document.getElementById("doa").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
