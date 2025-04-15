@@ -8,8 +8,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      font-family: 'Arial', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,24 +23,17 @@
     h1 {
       font-size: 4em;
       font-weight: bold;
-      animation: pop 1s ease-in-out infinite alternate, glow 2s ease-in-out infinite alternate;
+      animation: bounce 1s ease-in-out infinite alternate;
+      opacity: 0;
+      transform: scale(0);
     }
 
-    @keyframes pop {
+    @keyframes bounce {
       from {
-        transform: scale(1);
+        transform: translateY(0);
       }
       to {
-        transform: scale(1.2);
-      }
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
-      }
-      to {
-        text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 0.7);
+        transform: translateY(-20px);
       }
     }
 
@@ -54,7 +47,7 @@
       background-image: url('https://cdn.pixabay.com/photo/2017/08/30/00/15/party-2691196_960_720.png');
       background-size: cover;
       background-repeat: no-repeat;
-      animation: confettiFall 4s infinite linear;
+      animation: confettiFall 5s infinite linear;
     }
 
     @keyframes confettiFall {
@@ -67,28 +60,28 @@
     }
 
     .button {
-      margin-top: 20px;
+      margin-top: 30px;
       padding: 15px 30px;
-      background-color: #ff6f61;
+      background-color: #ff7f50;
       color: white;
       font-size: 1.2em;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease-in-out, background-color 0.2s ease;
     }
 
     .button:hover {
       transform: scale(1.1);
-      background-color: #ff3d2a;
+      background-color: #ff5733;
     }
 
     .birthday-message {
       font-size: 1.5em;
       margin-top: 20px;
       opacity: 0;
-      animation: showMessage 3s forwards;
+      animation: showMessage 2s forwards;
     }
 
     @keyframes showMessage {
@@ -101,9 +94,9 @@
         transform: translateY(0);
       }
     }
-    
+
     .pre-message {
-      font-size: 2em;
+      font-size: 1.8em;
       font-weight: bold;
       color: #ffffff;
       opacity: 0;
@@ -126,7 +119,7 @@
       color: #ffffff;
       opacity: 0;
       margin-top: 20px;
-      animation: showBySafiratun 4s forwards;
+      animation: showBySafiratun 2s forwards;
     }
 
     @keyframes showBySafiratun {
@@ -144,14 +137,14 @@
 <body>
   <div class="confetti"></div>
   <div class="pre-message">
-    💫 Wishing you a day filled with love, laughter, and happiness! 💖
+    🚀 Semoga tahun ini lo makin sukses, happy, dan penuh petualangan seru! 🌟
   </div>
   <h1>🎉</h1>
   <div class="birthday-message">
     🎂 Happy Birthday Alvin! 🎉<br><br>
-    May this year bring you endless joy and success. May all your dreams come true and your life be filled with love and adventure. Wishing you a bright future ahead! 🌟
+    Semoga tahun ini lebih banyak keberuntungan, terus semangat, jangan lupa senyum dan tetep jadi diri lo yang paling keren! 🤘
   </div>
-  <button class="button" onclick="alert('Happy Birthday Alvin! 🎉 May you have an amazing year ahead! 🥳')">Make a Wish!</button>
+  <button class="button" onclick="alert('Happy Birthday Alvin! 🚀 Semoga makin oke tahun ini! 👊')">Make a Wish!</button>
   <div class="by-safiratun">
     By Safiratun Nisa
   </div>
@@ -163,11 +156,13 @@
 
     setTimeout(function() {
       document.querySelector('h1').innerText = "Happy Birthday Alvin! 🎂";
+      document.querySelector('h1').style.opacity = '1';
+      document.querySelector('h1').style.transform = 'scale(1)';
     }, 2500);
 
     setTimeout(function() {
       document.querySelector('.birthday-message').style.opacity = '1';
-    }, 3000);
+    }, 3500);
 
     setTimeout(function() {
       document.querySelector('.by-safiratun').style.opacity = '1';
