@@ -5,50 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Alvin!</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(to bottom, #4e54c8, #8f94fb);
       color: white;
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
     .section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 50px 20px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      padding: 100px 20px;
     }
 
     h1 {
       font-size: 3em;
-      margin-bottom: 20px;
     }
 
-    .pre-message, .birthday-message, .by-safiratun {
-      max-width: 600px;
-      text-align: center;
-      font-size: 1.5em;
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 50px auto;
+      background: #ffb347;
+      border-radius: 20px 20px 10px 10px;
+    }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: #ffffff;
+      margin: 0 auto;
+      position: absolute;
+      top: -40px;
+      left: 0;
+      right: 0;
+      border-radius: 2px;
+    }
+
+    .flame {
+      width: 15px;
+      height: 15px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.2s infinite alternate;
+      box-shadow: 0 0 10px yellow;
+    }
+
+    @keyframes flicker {
+      from { transform: translateX(-50%) scale(1); }
+      to { transform: translateX(-50%) scale(1.1); }
+    }
+
+    .hidden {
+      display: none;
     }
 
     .button {
-      margin-top: 30px;
       padding: 15px 30px;
       background-color: #ff7f50;
       color: white;
@@ -56,56 +73,44 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease-in-out;
     }
 
     .button:hover {
       transform: scale(1.05);
-      background-color: #ff5733;
+    }
+
+    .by {
+      margin-top: 60px;
+      font-size: 1.2em;
+      color: #eee;
     }
   </style>
 </head>
 <body>
 
-  <section class="section" id="intro">
-    <div class="pre-message">
-      🚀 Yo Alvin! Scroll terus ya, ada surprise kecil nih dari seseorang spesial 😏
-    </div>
-  </section>
-
-  <section class="section" id="main">
+  <div class="section">
     <h1>🎉 Happy Birthday Alvin! 🎂</h1>
-    <div class="birthday-message">
-      Brooo, semoga lo makin keren, makin bahagia, dan rezekinya makin deras kayak hujan di bulan Desember! 😎<br><br>
-      Jangan lupa tetep jadi cowok humble tapi lucu. Hidup lo harus kayak lagu favorit—selalu naik turun tapi tetep asik! 🎶
-    </div>
-    <button class="button" onclick="alert('Yuk make a wish dulu~ 🎂✨')">Make a Wish!</button>
-  </section>
+    <p>Yuk tiup lilinnya dulu brooo 😎</p>
 
-  <section class="section" id="outro">
-    <div class="by-safiratun">
-      — By Safiratun Nisa 💌
+    <div class="cake">
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
     </div>
-  </section>
+
+    <button class="button" onclick="blowCandle()">Make a Wish & Tiup Lilin 🎂💨</button>
+
+    <div class="by">— By Safiratun Nisa 💌</div>
+  </div>
 
   <script>
-    const sections = document.querySelectorAll('.section');
-
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-
-      sections.forEach(section => {
-        const boxTop = section.getBoundingClientRect().top;
-
-        if (boxTop < triggerBottom) {
-          section.classList.add('visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    function blowCandle() {
+      const flame = document.getElementById("flame");
+      flame.classList.add("hidden");
+      alert("Wuuushh~ Lilin mati! Semoga keinginan lo terkabul yaa 🎉✨");
+    }
   </script>
+
 </body>
 </html>
